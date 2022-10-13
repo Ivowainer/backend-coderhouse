@@ -1,0 +1,1 @@
+[{"id":1,"title":"Mobile","price":3,"thumbnail":"./public/colors.jpg"},{"id":2,"title":"PC","price":6,"thumbnail":"./public/colors.jpg"},{"id":3,"title":"Notebook","price":6,"thumbnail":"./public/sgs.jpg"},{"id":4,"title":"Monitor","price":1,"thumbnail":"./public/monitor.jpg"}]
