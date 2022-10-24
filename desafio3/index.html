@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Desafio 3</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: space-around;">
+        <form
+            style="display: flex; flex-direction: column;"
+            id="form"
+        >
+            <input type="text" name="title" id="title" placeholder="title">
+            <input type="number" name="price" id="price" placeholder="price">
+            <input type="text" name="thumbnail" placeholder="thumbnail" required/>
+            <input type="submit" value="Upload your ImageProduct" required>
+        </form>
+    </div>
+
+    <script>
+        const formSubmit = document.querySelector('#form')
+
+        formSubmit.onsubmit = () => {
+            console.log('dd')
+        }
+    </script>
+</body>
+</html>

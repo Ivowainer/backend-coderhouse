@@ -1,0 +1,1 @@
+[{"id":1,"title":"Monitor","price":1,"thumbnail":"./public/monitor.jpg"},{"id":2,"title":"Ivo","price":1000,"thumbnail":"./public/sssss.jpg"},{"id":4,"title":"Monitor","price":1,"thumbnail":"./public/monitor.jpg"},{"id":5,"title":"Monitor","price":1,"thumbnail":"./public/monitor.jpg"},{"id":5,"title":"Monitor","price":1,"thumbnail":"./public/monitor.jpg"}]
