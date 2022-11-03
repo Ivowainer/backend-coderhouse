@@ -1,0 +1,1 @@
+[{"id":1,"title":"Monitor","price":1,"thumbnail":"https://www.lg.com/ar/images/monitores/md07556921/gallery/Dm-02.jpg"},{"id":2,"title":"Mouse","price":"22","thumbnail":"https://mexx-img-2019.s3.amazonaws.com/mouse-logitech-gamer-rgb-lila_38560_5.jpeg?v187"}]

@@ -1,0 +1,24 @@
+<%- include('./layout/mainLayout') %>
+
+<form action="/api/productos", method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" id="title">
+    </div>
+
+    <div class="mb-3">
+      <label for="price" class="form-label">Price</label>
+      <input type="number" name="price" class="form-control" id="price">
+    </div>
+
+    <div class="mb-3">
+      <label for="thumbnail" class="form-label">Thumbnail</label>
+      <input type="text" name="thumbnail" class="form-control" id="thumbnail">
+    </div>
+
+    <input type="submit" class="btn btn-primary" value="Save" />
+
+    <a href="/products" class="btn btn-secondary">Ver productos</a>
+</form>
+
+<%- include('./layout/mainFooter') %>
