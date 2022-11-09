@@ -1,0 +1,15 @@
+<div class="flex flex-col flex-grow h-screen md:h-full mt-10 mt-0 w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden">
+  <div class="bg-gray-300 p-4 flex">
+    <h1 class="text-xl text-black">Chat</h1>
+  </div>
+
+  <div class="flex flex-col flex-grow h-0 p-4 overflow-auto chatContainer">
+    <%- include('./chatMe') %>
+    <%- include('./chatYou') %>
+  </div>
+  
+  <form class="bg-gray-300 p-4 flex">
+      <input class="textMessage flex items-center h-10 w-full rounded px-3 text-sm outline-none" type="text" placeholder="Type your message…">
+      <input type="submit" value="Send" class="sendMessage cursor-pointer px-5 py-2 bg-emerald-500 rounded-md ml-2 text-white">
+  </form>
+</div>
