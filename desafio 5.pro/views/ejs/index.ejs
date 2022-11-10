@@ -14,14 +14,8 @@
           <th scope="col">Thumbnail</th>
       </tr>
   </thead>
-  <tbody>
-      <% products.map(product => {%> 
-          <tr>
-              <td><%- product.title %></td>
-              <td>$<%- product.price %></td>
-              <td><img src=<%- product.thumbnail %> class="w-25"></td>
-          </tr>
-      <% }) %> 
+  <tbody class="productContainer">
+      
   </tbody>
 </table>
 

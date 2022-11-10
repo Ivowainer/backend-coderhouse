@@ -19,8 +19,6 @@ app.use(express.urlencoded({ extended: true }))
 dotenv.config()
 
 // Plantilla
-/* appSetPug(app) */
-/* appSetEJS(app) */
 app.set('view engine', 'ejs')
 app.set('views', './views/ejs')
 
@@ -43,13 +41,23 @@ app.get('/', async (req, res) => {
 // Sockets
 const messages = [];
 
-io.on("connection", (socket) => {
+io.on("connection", async (socket) => {
 
+    /* Chat */
     socket.emit("UPDATE_MESSAGES", messages)
     
     socket.on("MESSAGE_SERVER", (data) => {
         messages.push(data)
         
         io.emit("UPDATE_MESSAGES", messages)
+    })
+
+    /* Products */
+    socket.emit("UPDATE_PRODUCTS", await contain1.getAll())
+
+    socket.on("PRODUCT_SERVER", async (data) => {
+        await contain1.save(data)
+        
+        io.emit("UPDATE_PRODUCTS", await contain1.getAll())
     })
 });
