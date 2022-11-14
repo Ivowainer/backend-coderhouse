@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "products": [
+            {
+                "id": 1,
+                "timestamp": 1668295152778,
+                "title": "Taza Boquita",
+                "description": "La mejor taza de boca está aca",
+                "price": 23,
+                "thumbnail": "https://d2r9epyceweg5n.cloudfront.net/stores/001/183/226/products/bonafide-331-01964b8d8f9c48cb3e16292962836877-1024-1024.jpg",
+                "stock": "3"
+            }
+        ]
+    }
+]
