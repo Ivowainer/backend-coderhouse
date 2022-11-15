@@ -1,5 +1,6 @@
 import express, { Router } from 'express'
 import dotenv from 'dotenv';
+import cors from 'cors'
 
 import productoRouter from './routes/productosRouter.js';
 import carritoRouter from './routes/carritoRouter.js';
@@ -9,6 +10,7 @@ const app = express();
 // Mid
 app.use(express.json())
 dotenv.config()
+app.use(cors())
 
 // Routing
 app.use('/api/productos', productoRouter)
