@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link';
 import ItemNav from '../UI/ItemNav';
 
 interface MainLayoutProps {
@@ -23,9 +24,9 @@ const MainLayout = ({children, pageName, pageDescription }: MainLayoutProps) => 
         </Head>
 
         <header className='shadow-md px-12 py-2 flex justify-between sticky top-0 z-50 bg-white'>
-            <p className='text-gray-800 text-xl font-bold'>EcommerceCoder</p>
+            <Link href="/" passHref className='text-gray-800 text-xl font-bold'>EcommerceCoder</Link>
             <nav className='text-black flex'>
-                <ItemNav icon={<i className="bi bi-cart"></i>} editable={true}/>
+                <Link href="/cart"><ItemNav icon={<i className="bi bi-cart"></i>} editable={true}/></Link>
             </nav>
         </header>
 

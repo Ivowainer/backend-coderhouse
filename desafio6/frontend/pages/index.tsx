@@ -18,7 +18,7 @@ export default function Home({ products }: HomeProps) {
                 <p className="font-bold text-2xl my-5">Todos los productos</p>
                 <div className="flex justify-around flex-wrap">    
                     {products.map(val => (
-                        <CardProduct key={val.id} description={val.description} price={val.price} stock={val.stock} thumbnail={val.thumbnail} title={val.title} />
+                        <CardProduct key={val.id} id={val.id} description={val.description} price={val.price} stock={val.stock} thumbnail={val.thumbnail} title={val.title} isAdded />
                     ))}
                 </div>
                 <p className="text-3xl font-bold mt-10">Añade un producto</p>

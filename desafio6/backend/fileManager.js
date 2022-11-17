@@ -102,21 +102,7 @@ class ContenedorCarrito{
         }
     }
 
-    async deleteById(number) {
-        const fileInfo = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
-
-        const objectParsed = await JSON.parse(fileInfo)
-
-        const filterById = objectParsed.filter(element => element.id !== Number(number))
-
-        /* const removeById = await objectParsed.splice(number - 1, 1) */
-
-        await fs.promises.writeFile(`./${this.fileName}`, JSON.stringify(filterById))
-
-        return filterById
-    }
-
-    async saveProductInCart(id, newProduct){
+    /* async saveProductInCart(id, newProduct){
         const fileInfo = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
 
         const objectParsed = await JSON.parse(fileInfo)
@@ -139,16 +125,33 @@ class ContenedorCarrito{
         await fs.promises.writeFile(`./${this.fileName}`, JSON.stringify(objectParsed))
 
         if(objectInfo.length === 0) null
-        if(objectInfo.length !== 0) return await objectInfo
+        if(objectInfo.length !== 0) return await idExists
+    } */
+
+    async saveProductInCart(id, newProduct){
+        const cartFile = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
+        const productsFile = await fs.promises.readFile(`./productos.json`, 'utf-8')
+
+        const cartParsed = await JSON.parse(cartFile)
+        const productsParsed = await JSON.parse(productsFile).filter(val => val.id == Number(newProduct))
+
+        await cartParsed.filter(val => val.id == Number(id))
+
+        cartParsed[0].products.push(productsParsed[0])
+
+        await fs.promises.writeFile(`./${this.fileName}`, JSON.stringify(cartParsed))
+
+        return cartParsed
+
     }
 
     async getById(number){
         try {
             const fileInfo = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
 
-            const objectParsed = JSON.parse(fileInfo)
+            const objectParsed = await JSON.parse(fileInfo)
 
-            const objectInfo = objectParsed.filter(object => object.id === number )
+            const objectInfo = await objectParsed.filter(object => object.id == Number(number) )
 
             if(objectInfo.length === 0) null
             if(objectInfo.length !== 0) return objectInfo[0].products
@@ -164,17 +167,16 @@ class ContenedorCarrito{
 
             const objectParsed = await JSON.parse(fileInfo)
 
-            const objectInfo = await objectParsed.filter(object => object.id === Number(idCart) )
+            const cart = await objectParsed.filter(val => val.id == Number(idCart) )
 
-            const objectProducts = await objectInfo.map(object => object.products)[0].filter(val => val.id !== Number(idProduct))
+            const objectProducts = await cart[0].products.filter(val => val.id !== Number(idProduct))
 
-            await fs.promises.writeFile(`./${this.fileName}`, JSON.stringify(objectProducts))
+            cart[0].products = await objectProducts
 
-            return objectProducts
+            await fs.promises.writeFile(`./${this.fileName}`, JSON.stringify(objectParsed))
 
-            /* if(objectInfo.length === 0) null
-            if(objectInfo.length !== 0) return objectInfo[0].products */
-            
+            if(objectInfo.length === 0) null
+            if(objectInfo.length !== 0) return objectParsed
         } catch (error) {
             console.log(error.message)
         }

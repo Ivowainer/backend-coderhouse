@@ -13,12 +13,14 @@ export const deleteCart = async (req, res) => {
 export const createProductInCart = async (req, res) => {
     const { idCart  } = req.params
     const { title, price, thumbnail, description, stock } = req.body
+    const { idProduct } = req.body
 
     if(!title, !price, !thumbnail, !description, !stock){
         return res.json({ msg: 'Por favor, rellene todos los campos'})
     }
 
-    res.json(await containCarrito.saveProductInCart(Number(idCart), { title, price, thumbnail, description, stock }))
+    /* res.json(await containCarrito.saveProductInCart(Number(idCart), { title, price, thumbnail, description, stock })) */
+    res.json(await containCarrito.saveProductInCart(Number(idCart), Number(idProduct)))
 }
 
 export const getProductsByCart = async (req, res) => {
@@ -30,5 +32,5 @@ export const getProductsByCart = async (req, res) => {
 export const deleteProductByCart = async (req, res) => {
     const { idCart, idProduct } = req.params
 
-    /* res.json(await containCarrito.deleteProductById(idCart, idProduct)) */
+    res.json(await containCarrito.deleteProductById(idCart, idProduct))
 }

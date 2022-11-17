@@ -3,14 +3,17 @@
         "id": 1,
         "products": [
             {
-                "id": 1,
-                "timestamp": 1668295152778,
-                "title": "Taza Boquita",
-                "description": "La mejor taza de boca está aca",
-                "price": 23,
-                "thumbnail": "https://d2r9epyceweg5n.cloudfront.net/stores/001/183/226/products/bonafide-331-01964b8d8f9c48cb3e16292962836877-1024-1024.jpg",
-                "stock": "3"
+                "id": 2,
+                "title": "Almohadón Nuevo ",
+                "description": "Almohadón completamente nuevo y renovado",
+                "price": "320",
+                "stock": "2",
+                "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/063/829/products/whatsapp-image-2020-10-30-at-10-06-021-3bd716cb270e40ac9516040707704766-1024-1024.jpeg"
             }
         ]
+    },
+    {
+        "id": 2,
+        "products": []
     }
 ]

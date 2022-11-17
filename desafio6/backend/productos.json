@@ -1,1 +1,18 @@
-[{"id":1,"title":"Taza de boca","description":"La mejor taza de boca esta acaaa","price":"2312","stock":"2","thumbnail":"https://d2r9epyceweg5n.cloudfront.net/stores/001/183/226/products/bonafide-331-01964b8d8f9c48cb3e16292962836877-1024-1024.jpg"}]
+[
+    {
+        "id": 1,
+        "title": "Taza de boca",
+        "description": "La mejor taza de boca esta acaaa",
+        "price": "2312",
+        "stock": "2",
+        "thumbnail": "https://d2r9epyceweg5n.cloudfront.net/stores/001/183/226/products/bonafide-331-01964b8d8f9c48cb3e16292962836877-1024-1024.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Almohadón Nuevo ",
+        "description": "Almohadón completamente nuevo y renovado",
+        "price": "320",
+        "stock": "2",
+        "thumbnail": "https://d3ugyf2ht6aenh.cloudfront.net/stores/063/829/products/whatsapp-image-2020-10-30-at-10-06-021-3bd716cb270e40ac9516040707704766-1024-1024.jpeg"
+    }
+]

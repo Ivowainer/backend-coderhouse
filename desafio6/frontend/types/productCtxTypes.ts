@@ -1,10 +1,13 @@
 export type ProductObject = {
     id?: number;
+    timestamp?: number;
     title: string;
     description: string;
     thumbnail: string;
     price: string;
     stock: string;   
+
+    isAdded?: boolean;
 }
 
 export type ProductCtxType = {
