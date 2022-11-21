@@ -4,7 +4,9 @@ import { Server } from 'socket.io'
 import { createServer } from "http";
 
 import productoRouter from './routes/productosRouter.js';
-import { contain1 } from './fileManager.js';
+
+import knexConfig from './db/config.js';
+import { Contenedor } from './db/products/productsKnex.js';
 
 import { appSetPug } from './utils/appSetPug.js';
 import { appSetEJS } from './utils/appSetEJS.js';
@@ -12,6 +14,8 @@ import { appSetEJS } from './utils/appSetEJS.js';
 const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer);
+
+const contain1 = new Contenedor(knexConfig, 'products')
 
 // Mid
 app.use(express.json())
