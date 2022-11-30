@@ -1,0 +1,92 @@
+CRUD MongoDB w/ shell
+
+1- mongo
+2- use ecommerce
+3- db.createCollection("mensajes")
+4- db.createCollection("productos")
+
+/* Insertar 10 documentos en colección "mensajes" */
+	5- db.mensajes.insert(
+		[
+			{user: "Maxi", message: "Hola"},
+			{user: "Leo", message: "Hola! Que tal?"},
+			{user: "Maxi", message: "Bien, vos?"},
+			{user: "Leo", message: "See, todo tranqui"},
+			{user: "Maxi", message: "De una, no sé que mas poner"},
+			{user: "Leo", message: "Yo tampoco"},
+			{user: "Layla", message: "Hola"},
+			{user: "Layla", message: "Hace falta crear 10 documentos?"},
+			{user: "Leo", message: "Todavía me quedan los otros 10 documentos de los productos"},
+			{user: "Maxi", message: "La baja"},
+		]
+	)
+
+/* Insertar 10 documentos en colección "productos" */
+	6- db.productos.insert(
+		[
+			{title: "Mouse", price: 4562, thumbnail: "url1"},
+			{title: "Teclado", price: 3278, thumbnail: "url2"},
+			{title: "Mouse Logitech", price: 4990, thumbnail: "url3"},
+			{title: "Monitor", price: 2391, thumbnail: "url4"},
+			{title: "Juguete", price: 271, thumbnail: "url5"},
+			{title: "Monitor LG", price: 4281, thumbnail: "url6"},
+			{title: "Computadora", price: 4999, thumbnail: "url7"},
+			{title: "Juego Steam", price: 172, thumbnail: "url8"},
+			{title: "Lentes", price: 162, thumbnail: "url9"},
+			{title: "Teclado Logitech", price: 1500, thumbnail: "url10"}
+		]
+	)
+
+	7- db.mensajes.find().pretty()
+	8- db.productos.find().pretty()
+
+	9- db.mensajes.estimatedDocumentCount()
+	10- db.productos.estimatedDocumentCount()
+
+/* Create */
+	11- db.productos.insertOne({title: "Juego Ark Steam", price: 912, thumbnail: "url11"})
+
+/* Read */	
+	12- db.productos.find({ price: {$lt: 1000} })
+	13- db.productos.find({ 
+		$and: [
+			{
+				price: {$gt: 1000}
+			}, 
+			{
+				price: {$lt: 3000}
+			}
+		] 
+	})
+	14- db.productos.find({ price: {$gt: 3000} })
+	15- db.productos.find().sort({price: 1}).limit(3)
+
+/* Update */	
+	16- db.productos.update(
+		{}, 
+		{$set: {"stock": 100}},
+		false,
+		true
+	)
+	17- db.productos.updateMany(
+			{"price": {$gt: 4000}}, 
+			{$set: {"stock": 0}}
+		)
+
+/* Delete */	
+	18- db.productos.deleteMany({ "price": {$lt: 1000} })
+
+/* users and Roles */	
+	19- use admin
+	20- db.createUser(
+		{
+			user: "pepe",
+			pwd: "asd456",
+			roles: [
+				{ role: "read", db: "ecommerce" }
+			]
+		}
+	)
+
+	21- mongo -u pepe -p asd456
+	22- db.posts.insertOne({ title: "Articulo 3" });

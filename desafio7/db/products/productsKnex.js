@@ -106,6 +106,41 @@ export class Contenedor {
     }
 }
 
+export class ContenedorMessage{
+    constructor(databaseConfig, tableName){
+        this.databaseConfig = databaseConfig,
+        this.tableName = tableName
+    }
+
+    async getMessages(){
+        const knex = knexDb(this.databaseConfig)
+
+        try {
+            const products = await knex.select().table(this.tableName)
+
+            await knex.destroy()
+
+            return JSON.parse(JSON.stringify(products))
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async saveMessage(data){
+        const knex = knexDb(this.databaseConfig)
+
+        try {
+            const product = await knex(this.tableName).insert(data)
+
+            await knex.destroy()
+
+            return product
+        } catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 /* export const contain1 = new Contenedor('productos.txt') */
 /* const saveObject1 = contain1.save(objectProduct2) */
 /* const getObjectById1 = contain1.getById(3) */

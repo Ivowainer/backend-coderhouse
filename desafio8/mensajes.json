@@ -1,0 +1,10 @@
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d1"},"user":"Maxi","message":"Hola"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d2"},"user":"Leo","message":"Hola! Que tal?"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d3"},"user":"Maxi","message":"Bien, vos?"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d4"},"user":"Leo","message":"See, todo tranqui"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d5"},"user":"Maxi","message":"De una, no sé que mas poner"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d6"},"user":"Leo","message":"Yo tampoco"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d7"},"user":"Layla","message":"Hola"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d8"},"user":"Layla","message":"Hace falta crear 10 documentos?"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2d9"},"user":"Leo","message":"Todavía me quedan los otros 10 documentos de los productos"}
+{"_id":{"$oid":"6383bc1fb495edfd1cd4b2da"},"user":"Maxi","message":"La baja"}

@@ -6,7 +6,7 @@ import { createServer } from "http";
 import productoRouter from './routes/productosRouter.js';
 
 import knexConfig from './db/config.js';
-import { Contenedor } from './db/products/productsKnex.js';
+import { Contenedor, ContenedorMessage } from './db/products/productsKnex.js';
 
 import { appSetPug } from './utils/appSetPug.js';
 import { appSetEJS } from './utils/appSetEJS.js';
@@ -16,6 +16,7 @@ const httpServer = createServer(app)
 const io = new Server(httpServer);
 
 const contain1 = new Contenedor(knexConfig, 'products')
+const containMessage = new ContenedorMessage(knexConfig, 'messages')
 
 // Mid
 app.use(express.json())
@@ -43,16 +44,20 @@ app.get('/', async (req, res) => {
 })
 
 // Sockets
-const messages = [];
+/* const messages = []; */
 
 io.on("connection", async (socket) => {
-
     /* Chat */
-    socket.emit("UPDATE_MESSAGES", messages)
+    socket.emit("UPDATE_MESSAGES", await containMessage.getMessages())
+
     
-    socket.on("MESSAGE_SERVER", (data) => {
+    socket.on("MESSAGE_SERVER", async (data) => {
+        const messages = await containMessage.getMessages()
+
+        containMessage.saveMessage(data)
+
         messages.push(data)
-        
+
         io.emit("UPDATE_MESSAGES", messages)
     })
 

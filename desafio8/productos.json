@@ -1,0 +1,7 @@
+{"_id":{"$oid":"6384c3092c05fcac90888e94"},"title":"Mouse","price":4562.0,"thumbnail":"url1","stock":0.0}
+{"_id":{"$oid":"6384c3092c05fcac90888e95"},"title":"Teclado","price":3278.0,"thumbnail":"url2","stock":100.0}
+{"_id":{"$oid":"6384c3092c05fcac90888e96"},"title":"Mouse Logitech","price":4990.0,"thumbnail":"url3","stock":0.0}
+{"_id":{"$oid":"6384c3092c05fcac90888e97"},"title":"Monitor","price":2391.0,"thumbnail":"url4","stock":100.0}
+{"_id":{"$oid":"6384c3092c05fcac90888e99"},"title":"Monitor LG","price":4281.0,"thumbnail":"url6","stock":0.0}
+{"_id":{"$oid":"6384c3092c05fcac90888e9a"},"title":"Computadora","price":4999.0,"thumbnail":"url7","stock":0.0}
+{"_id":{"$oid":"6384c3092c05fcac90888e9d"},"title":"Teclado Logitech","price":1500.0,"thumbnail":"url10","stock":100.0}
