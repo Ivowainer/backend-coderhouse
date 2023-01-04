@@ -1,0 +1,97 @@
+<script src="https://cdn.socket.io/4.5.3/socket.io.min.js" integrity="sha384-WPFUvHkB1aHA5TDSZi6xtDgkF0wXJcIIxXhC6h8OT8EH3fC5PWro5pWJ1THjcfEi" crossorigin="anonymous"></script>
+<script type="module">
+    /* MESSAGES */
+    const sendMessage = document.querySelector('.sendMessage')
+    const textMessage = document.querySelector('.textMessage')
+    const chatContainer = document.querySelector('.chatContainer')
+
+    const socket = io();
+
+    sendMessage.addEventListener('click', async e => {
+        e.preventDefault()
+
+        if(textMessage.value.length < 3) return
+
+        socket.emit("MESSAGE_SERVER", { user: socket.id, message: textMessage.value })
+
+        textMessage.value = ''
+
+        console.log('safg')
+    })
+
+    socket.on("UPDATE_MESSAGES", (data) => {
+
+        console.log(data)
+        /* let messageList = ''
+
+        
+        data.forEach(val => {
+            messageList = messageList + 
+            `<div class="${(val.user == socket.id ? 'flex w-full mt-2 space-x-3 max-w-xs' : 'flex w-full mt-2 space-x-3 max-w-xs ml-auto justify-end')}">  
+                <div>
+                    <div class="${(val.user == socket.id ? "bg-gray-300 p-3 rounded-r-lg rounded-bl-lg" : 'bg-emerald-600 text-white p-3 rounded-l-lg rounded-br-lg')}">
+                        <div class="${(val.user == socket.id ? "text-gray-700 border-b border-gray-400" : "text-gray-200 border-b border-emerald-500")}">${val.user}</div>
+                        <p class="${val.user == socket.id ? "text-sm text-gray-700" : "text-sm text-gray-200"}">${val.message}</p>
+                    </div>
+                </div>
+            </div>`
+        })
+        chatContainer.innerHTML = messageList */
+    })
+
+    /* PRODUCTS */
+
+    /* btnSubmit.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        if(title.value < 6) return
+        if(price.value < 1) return
+        if(thumbnail.value < 6) return
+
+        socket.emit("PRODUCT_SERVER", { title: title.value, price: price.value, thumbnail: thumbnail.value })
+
+        title.value = ''
+        price.value = ''
+        thumbnail.value = ''
+    })
+
+    socket.on("UPDATE_PRODUCTS", async (data) => {
+        let productList = ''
+        
+        await data.forEach(val => {
+            productList = productList + 
+            `<tr>
+                <td>${val.title}</td>
+                <td>$${val.price}</td>
+                <td><img src="${val.thumbnail}" class="w-25"></td>
+            </tr>`
+        })
+        productContainer.innerHTML = productList
+    })
+
+    // PRODUCTOS TEST
+    const getProduct = async () => {
+        const products = await fetch('http://localhost:8080/api/productos-test')
+        return products.json()
+    }
+
+    const allProducts = await getProduct();
+    
+    const listProduct = async () => {
+        let productList = ''
+        await allProducts.forEach(val => {
+            productList = productList + 
+            `<tr>
+                <td>${val.title}</td>
+                <td>$${val.price}</td>
+                <td><img src="${val.thumbnail}" class="w-25"></td>
+            </tr>`
+        })
+        productTestContainer.innerHTML = productList
+    }
+
+    await listProduct() */
+    
+</script>
+</body>
+</html>

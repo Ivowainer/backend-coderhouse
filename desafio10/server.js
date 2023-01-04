@@ -54,6 +54,8 @@ app.get("/", async (req, res) => {
 
 // Sockets
 
+const messages = [];
+
 io.on("connection", async (socket) => {
     /* Chat */
     socket.emit("UPDATE_MESSAGES", await containMessage.getMessages());
