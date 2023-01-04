@@ -1,0 +1,15 @@
+import { faker } from "@faker-js/faker";
+
+export const createRandomProducts = async (req, res) => {
+    const arr = [];
+
+    for (let i = 0; i < 5; i++) {
+        arr.push({
+            title: faker.commerce.product(),
+            price: faker.finance.amount(),
+            thumbnail: faker.image.avatar(),
+        });
+    }
+
+    res.json(arr);
+};

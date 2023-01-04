@@ -1,0 +1,35 @@
+<%- include('./layout/mainLayout') %>
+
+<div class="flex flex-col md:flex-row mb-12 md:h-screen md:justify-evenly md:px-2 md:py-20 items-center">
+  <%- include('./components/productForm') %>
+  
+  <%- include('./components/chatContainer') %>
+</div>
+
+<table class="table table-striped col-6">
+  <thead>
+      <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Thumbnail</th>
+      </tr>
+  </thead>
+  <tbody class="productContainer">
+      
+  </tbody>
+</table>
+
+<table class="table table-striped col-6">
+  <thead>
+      <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Thumbnail</th>
+      </tr>
+  </thead>
+  <tbody class="productTestContainer">
+      
+  </tbody>
+</table>
+
+<%- include('./layout/mainFooter') %>
