@@ -5,8 +5,17 @@
     const textMessage = document.querySelector('.textMessage')
     const chatContainer = document.querySelector('.chatContainer')
 
+    /* PRODUCTS */
+    const title = document.querySelector("#title");
+    const price = document.querySelector("#price");
+    const thumbnail = document.querySelector("#thumbnail");
+    const btnSubmit = document.querySelector("#buttonSubmit");
+    const productContainer = document.querySelector(".productContainer");
+    const productTestContainer = document.querySelector(".productTestContainer");
+
     const socket = io();
 
+    /*============================ Messages ============================*/
     sendMessage.addEventListener('click', async e => {
         e.preventDefault()
 
@@ -39,9 +48,8 @@
         chatContainer.innerHTML = messageList */
     })
 
-    /* PRODUCTS */
-
-    /* btnSubmit.addEventListener('click', (e) => {
+    /*============================ PRODUCTS ============================*/
+    btnSubmit.addEventListener('click', (e) => {
         e.preventDefault()
 
         if(title.value < 6) return
@@ -71,7 +79,7 @@
 
     // PRODUCTOS TEST
     const getProduct = async () => {
-        const products = await fetch('http://localhost:8080/api/productos-test')
+        const products = await fetch('http://localhost:8080/api/products-test')
         return products.json()
     }
 
@@ -90,7 +98,7 @@
         productTestContainer.innerHTML = productList
     }
 
-    await listProduct() */
+    await listProduct()
     
 </script>
 </body>
