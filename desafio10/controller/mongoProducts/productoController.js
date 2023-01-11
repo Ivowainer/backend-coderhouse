@@ -1,5 +1,5 @@
-import knexConfig from "../db/config.js";
-import { Contenedor } from "../db/products/productsKnex.js";
+import knexConfig from "../../db/config.js";
+import { Contenedor } from "../../db/products/productsKnex.js";
 
 export const contain1 = new Contenedor(knexConfig, "products");
 
