@@ -1,0 +1,64 @@
+<%- include('./layout/mainLayout') %>
+        <div class="flex flex-col gap-3 items-center justify-center h-screen w-screen px-12">
+            <h1 class="text-3xl text-emerald-500">Login</h1>
+            <input type="email" class="inputEmail px-4 py-2 outline-none border rounded-xl w-full xs:w-1/2 lg:w-1/5 text-center" placeholder="Ingrese su email por favor">
+            <input type="password" class="inputPassword px-4 py-2 outline-none border rounded-xl w-full xs:w-1/2 lg:w-1/5 text-center" placeholder="Ingrese su password por favor">
+            <input type="submit" class="btnSubmit px-3 py-2 bg-emerald-400 hover:bg-emerald-600 text-white rounded-xl transition-all duration-300"  value="Submit" />
+        </div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script>
+            const btnSubmit = document.querySelector('.btnSubmit')
+
+            const inputEmail = document.querySelector('.inputEmail')
+            const inputPassword = document.querySelector('.inputPassword')
+
+            btnSubmit.addEventListener('click', async () => {
+                if(inputEmail.value.length == 0 || inputPassword.value.length == 0){
+                    return Toastify({
+                        text: "Please, fill all the fields",
+                        duration: 3000,
+                        newWindow: true,
+                        close: true,
+                        gravity: "top", // `top` or `bottom`
+                        position: "right", // `left`, `center` or `right`
+                        stopOnFocus: true, // Prevents dismissing of toast on hover
+                        style: {
+                            background: "red",
+                        }
+                    }).showToast();
+                }
+
+                const data = await fetch('/api/users', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: inputEmail.value, password: inputPassword.value })
+                })
+
+                const user = await data.json()
+
+                await localStorage.setItem('token', await user.token);
+
+                Toastify({
+                    text: "User logged",
+                    duration: 3000,
+                    newWindow: true,
+                    close: true,
+                    gravity: "top", // `top` or `bottom`
+                    position: "right", // `left`, `center` or `right`
+                    stopOnFocus: true, // Prevents dismissing of toast on hover
+                    style: {
+                        background: "green",
+                    }
+                }).showToast();
+
+                inputEmail.value = '';
+                inputPassword.value = '';
+
+            })
+        </script>
+
+    </body>
+</html>

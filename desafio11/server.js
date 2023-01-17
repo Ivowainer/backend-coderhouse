@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import MongoStore from "connect-mongo";
-import { cookieExistsSession, cookieSession } from "./middleware/cookieSession.js";
+import { cookieSession } from "./middleware/cookieSession.js";
 
 import { connection } from "./db/mongoConnection.js";
 
@@ -14,10 +14,12 @@ import messageRouter from "./routes/chat/message.routes.js";
 import authorRouter from "./routes/chat/author.routes.js";
 import productRouter from "./routes/product/product.routes.js";
 import productsTestRouter from "./routes/product/product-test.routes.js";
+import userRouter from "./routes/user/user.routes.js";
 
 import { mongoChat } from "./controller/chat/message.controller.js";
 import { desnormalizrMessage } from "./utils/normalizrMessages.js";
 import { mongoProducts } from "./controller/product/productController.js";
+import { checkAuth } from "./middleware/checkAuth.js";
 
 const app = express();
 const httpServer = createServer(app);
@@ -72,6 +74,7 @@ app.use("/api/messages", messageRouter);
 app.use("/api/authors", authorRouter);
 app.use("/api/products", productRouter);
 app.use("/api/products-test", productsTestRouter);
+app.use("/api/users", userRouter);
 
 /*============================ VIEWS ============================*/
 app.set("view engine", "ejs");
@@ -80,8 +83,12 @@ app.set("views", "./views");
 app.get("/", async (req, res) => {
     res.render("index");
 });
-app.get("/dashboard", cookieSession, async (req, res) => {
-    res.render("dashboard", { user: req.session.user });
+
+app.get("/login", async (req, res) => {
+    res.render("login");
+});
+app.get("/dashboard", checkAuth, cookieSession, async (req, res) => {
+    res.render("dashboard", { user: req.user });
 });
 
 /*============================ SOCKETS ============================*/
